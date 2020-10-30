@@ -16,4 +16,15 @@ h1 {
 .answer {
   justify-content: center;
   text-align: center;
+  font-size: 40px;
+}
+
+.answer-btns {
+  justify-content: center;
+  text-align: center;
+}
+
+.choice-btn {
+  background-color: palegreen;
+  font-size: 20px;
 }
