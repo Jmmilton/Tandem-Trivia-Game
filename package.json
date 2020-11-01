@@ -1,0 +1,22 @@
+{
+  "name": "trivia",
+  "version": "1.0.0",
+  "description": "Tandem Apprentice Challenge 2020",
+  "main": "script.js",
+  "scripts": {
+    "start": "http-server -o"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jmmilton/Tandem-Trivia-Game.git"
+  },
+  "author": "Jason Milton",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jmmilton/Tandem-Trivia-Game/issues"
+  },
+  "homepage": "https://github.com/Jmmilton/Tandem-Trivia-Game#readme",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  }
+}
