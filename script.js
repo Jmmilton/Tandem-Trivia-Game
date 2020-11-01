@@ -5,56 +5,88 @@ fetch("./json/Apprentice_TandemFor400_Data.json")
     const jsonStr = JSON.stringify(data);
     const jsonObj = JSON.parse(jsonStr);
 
-    let questionAndAnswer = jsonObj[Object.keys(jsonObj)[0]];
-    let question = questionAndAnswer["question"];
-    let incorrectAnswer = questionAndAnswer["incorrect"];
-    let correctAnswer = questionAndAnswer["correct"];
-    let choicesArr = [].concat(incorrectAnswer, correctAnswer)
-    let answerDiv = document.querySelector('.answer-btns');
+    // Trivia question index
+    let triviaIndex = 0;
 
+    // Trivia info
+    let triviaObj, question, incorrectAnswer, correctAnswer, choicesArr;
 
-   
+    // This function takes the user choice from the button clicked
+    // and compares to the correct answer from that question
+    function checkAnswer(choice, correctAnswer, button){
+        if(choice === correctAnswer){
+            console.log('Correct')
+            triviaIndex += 1;
 
+            renderQuestionAndAnswer(triviaIndex);
+        } else {
+            console.log('Try again')
+            button.classList.add('wrong-answer');
+        }
+    }
 
-    function renderQuestionAndAnswer(){
+    // This function takes an index as parameter, extracts one object
+    // from the trivia json, extracts its question and answers, renders
+    // the current question and the choices and adds to them an event listener
+    function renderQuestionAndAnswer(index){
+        triviaObj = jsonObj[Object.keys(jsonObj)[triviaIndex]];
+        question = triviaObj["question"];
+        incorrectAnswer = triviaObj["incorrect"];
+        correctAnswer = triviaObj["correct"];
 
-        //render question
+        choicesArr = [].concat(incorrectAnswer, correctAnswer)
+        let answerDiv = document.querySelector('.answer-btns');
+
+        // Renders question
         document.querySelector('.question').innerHTML = question;
 
-        //render choices
+        // Cleans the wrapper
+        answerDiv.innerHTML = '';
+
+        // Renders choices buttons
         choicesArr.forEach(choice => {
             let choiceInput = `
                 <button class="choice-btn">
                     ${choice}
                 </button>
             ` 
+            answerDiv.innerHTML += choiceInput;
+        });
 
-            // <label>
-            //         <input type="radio">
-            //         ${choice}
-            //     </label>
-                answerDiv.innerHTML += choiceInput;
-
+        // Adds event listener to the buttons
+        let choicesBtn = document.querySelectorAll('.choice-btn');
+        choicesBtn.forEach(button => {
+            button.addEventListener('click', function(){
+                let userChoice = button.innerText;
+                checkAnswer(userChoice, correctAnswer, button);
+            });
         });
     }
 
-    renderQuestionAndAnswer();
+    renderQuestionAndAnswer(triviaIndex);
 
-    function checkAnswer(choice){
-        if(choice === correctAnswer){
-            console.log('Correct')
-        } else (
-            console.log('Try again')
-        )
-    }
+    // Reset Button
+    let resetBtn = document.getElementById('reset');
 
-    let choicesBtn = document.querySelectorAll('.choice-btn');
-    choicesBtn.forEach(button => {
-        // button.addEventListener('click', checkAnswers);
-        button.addEventListener('click', function(){
-            checkAnswer(button.innerText);
+    resetBtn.addEventListener('click', function(){
+        const resetPrompt = prompt('Type reset to start over')
+        if (resetPrompt === "reset" || resetPrompt === "Reset") {
+        location.reload()
+
+        }
+    })
+
+    // Cheat Button 
+    let cheatBtn = document.getElementById('cheat');
+
+    cheatBtn.addEventListener('click', function(){
+        // do -10 points animation
+        choicesArr.forEach(e => {
+            console.log('1')
         });
-    });
+    }
+    
 
 
+    )
 })

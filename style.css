@@ -28,3 +28,7 @@ h1 {
   background-color: palegreen;
   font-size: 20px;
 }
+
+.wrong-answer {
+  background-color: red;
+}
