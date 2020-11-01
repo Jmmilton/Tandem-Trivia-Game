@@ -6,13 +6,13 @@ This project is a trivia game developed in Vanilla JavaScript as a challenge for
 
 To install this project locally, first you need to clone this repo
 
-SSH
+_Using SSH_
 
 ```bash
 git clone git@github.com:Jmmilton/Tandem-Trivia-Game.git
 ```
 
-HTTP
+_Using HTTP_
 
 ```bash
 git clone https://github.com/Jmmilton/Tandem-Trivia-Game.git
@@ -29,3 +29,13 @@ Then use the package manager [npm](https://www.npmjs.com/) to install Trivia Gam
 ```bash
 npm i
 ```
+
+## Starting the project
+
+To run the project on your machine, all you need to do is
+
+```bash
+npm start
+```
+
+This should open a new browser tab automatically, but in case it doesn't, navigate to (http://127.0.0.1:4200/)

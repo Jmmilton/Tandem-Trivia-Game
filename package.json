@@ -4,7 +4,7 @@
   "description": "Tandem Apprentice Challenge 2020",
   "main": "script.js",
   "scripts": {
-    "start": "http-server -o"
+    "start": "http-server -o -p 4200"
   },
   "repository": {
     "type": "git",
