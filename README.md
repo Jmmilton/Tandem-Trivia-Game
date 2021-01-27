@@ -38,4 +38,4 @@ To run the project on your machine, all you need to do is
 npm start
 ```
 
-This should open a new browser tab automatically, but in case it doesn't, navigate to (http://127.0.0.1:4200/)
+This should open a new browser tab automatically, but in case it doesn't, navigate to http://127.0.0.1:4200/
